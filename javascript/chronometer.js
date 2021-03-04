@@ -18,17 +18,18 @@ class Chronometer {
 
   getSeconds() {
 
- const seconds = Math.floor(this.currentTime)
+ const seconds = this.currentTime - this.getMinutes() * 60
  return seconds
 
   }
-  twoDigitsNumber() {
 
-  const twodigits =  this.getMinutes().toString().padStart(2, "00") && this.getSeconds().toString().padStart(2,"00")
-  return twodigits
+  twoDigitsNumber(str) {
 
-
-  }
+    const twodigits =  str.toString().padStart(2, "0")
+    return twodigits  
+  
+}
+  
   stopClick() {
     clearInterval(this.IntervalId)
   }
@@ -36,6 +37,7 @@ class Chronometer {
   resetClick() {
    this.currentTime = 0;
   }
+
   splitClick() {
 
  let min = this.getMinutes()
